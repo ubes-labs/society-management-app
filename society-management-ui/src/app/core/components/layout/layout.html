@@ -1,10 +1,13 @@
-<mat-toolbar>
-  <span>Society Manangement System</span>
-</mat-toolbar>
-<mat-sidenav-container>
-  <mat-sidenav-content>
+<mat-drawer-container>
+  <mat-drawer #drawer mode="over"> Testing drawer </mat-drawer>
+  <mat-drawer-content
+    ><mat-toolbar>
+      <button matMiniFab aria-label="Open menu" (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Society Manangement System</span>
+    </mat-toolbar>
     <main>
       <router-outlet></router-outlet>
-    </main>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+    </main> </mat-drawer-content
+></mat-drawer-container>
