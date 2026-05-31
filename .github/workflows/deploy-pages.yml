@@ -1,0 +1,57 @@
+name: Deploy to Githib pages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Build and Deploy ng application
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+
+    steps:
+      - name: Checkout Source code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+          cache: npm
+          cache-dependency-path: society-management-ui/package-lock.json
+
+      - name: Install npm dependencies
+        working-directory: ./society-management-ui
+        run: npm ci
+
+      - name: Build ng application
+        working-directory: ./society-management-ui
+        run: npm run build:prod
+
+      - name: Execute Unit tests
+        working-directory: ./society-management-ui
+        run: npm run test --watch=false --browsers=ChromeHeadless
+
+      - name: Setup Github pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Build Artifacts
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: society-management-ui/dist/society-management-ui/browser
+
+      - name: Deploy to Github pages
+        uses: actions/deploy-pages@v4
