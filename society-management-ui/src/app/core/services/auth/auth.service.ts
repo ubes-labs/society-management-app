@@ -1,6 +1,7 @@
 import { Injectable, signal } from '@angular/core';
 import { createClient, SupabaseClient, User } from '@supabase/supabase-js';
 import { environment } from '../../../../environments/environment';
+import { supabaseRedirectToUriResolver } from '../../utils';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -9,7 +10,6 @@ export class AuthService {
 
   constructor() {
     this.supabase = this._initializeSupabaseClient();
-    console.log('only once');
     this._setUserOnAuth();
   }
 
@@ -19,7 +19,7 @@ export class AuthService {
       .signInWithOAuth({
         provider: 'google',
         options: {
-          redirectTo: window.location.origin,
+          redirectTo: supabaseRedirectToUriResolver(),
         },
       })
       .catch((err) => console.error(err));
