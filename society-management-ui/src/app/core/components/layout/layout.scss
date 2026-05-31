@@ -1,8 +1,17 @@
 .mat-drawer-container {
   height: 100vh;
+
+  .mat-drawer {
+    width: auto;
+  }
+
   .mat-toolbar {
     background: var(--mat-sys-inverse-primary);
     display: flex;
     gap: 1rem;
+  }
+
+  main {
+    height: calc(100vh - 64px);
   }
 }

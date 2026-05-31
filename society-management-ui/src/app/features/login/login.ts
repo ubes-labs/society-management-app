@@ -1,12 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { UserResponse } from '@supabase/auth-js';
-import { CommonModule } from '@angular/common';
 import { AuthService } from '../../core';
 
 @Component({
   selector: 'app-login',
-  imports: [MatButtonModule, CommonModule],
+  imports: [MatButtonModule],
   templateUrl: './login.html',
   styleUrl: './login.scss',
   standalone: true,
@@ -14,13 +12,7 @@ import { AuthService } from '../../core';
 export class Login {
   readonly auth = inject(AuthService);
 
-  user: UserResponse | null = null;
-
   async login() {
     await this.auth.loginWithGoogle();
-  }
-
-  async logout() {
-    await this.auth.logout();
   }
 }

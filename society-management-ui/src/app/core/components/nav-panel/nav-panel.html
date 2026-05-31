@@ -1,1 +1,16 @@
-<p>nav-panel works!</p>
+<mat-list class="list-container">
+  @for (item of topNavRoutes; track $index) {
+    <mat-list-item>
+      <button matButton [routerLink]="item.route">
+        {{ item.label }}
+      </button>
+    </mat-list-item>
+  }
+  <mat-list-item>
+    @if (auth.user()) {
+      <button matButton (click)="logOut()">Log Out</button>
+    } @else {
+      <button matButton routerLink="login">Log In</button>
+    }
+  </mat-list-item>
+</mat-list>
