@@ -1,0 +1,7 @@
+@if (auth.user(); as user) {
+  <p>{{ user.email }}</p>
+
+  <button mat-raised-button (click)="logout()">Logout</button>
+} @else {
+  <button mat-raised-button (click)="login()">Login with Google</button>
+}

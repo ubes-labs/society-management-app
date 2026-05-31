@@ -37,6 +37,24 @@ jobs:
         working-directory: ./society-management-ui
         run: npm ci
 
+      - name: Generate environment.ts
+        working-directory: ./society-management-ui
+        run: |
+          mkdir -p src/environments
+
+          cat > src/environments/environment.ts << EOF
+          export const environment = {
+            production: true,
+            supabaseUrl: '${{ secrets.SUPABASE_URL }}',
+            supabaseAnonKey: '${{ secrets.SUPABASE_ANON_KEY }}'
+          };
+          EOF
+
+      - name: Verify environment file exists
+        working-directory: ./society-management-ui
+        run: |
+          ls -la src/environments
+
       - name: Build ng application
         working-directory: ./society-management-ui
         run: npm run build:prod
