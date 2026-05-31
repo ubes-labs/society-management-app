@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { AuthService } from '../../services/auth/auth.service';
 import { MatButtonModule } from '@angular/material/button';
 import { UserResponse } from '@supabase/auth-js';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../core';
 
 @Component({
   selector: 'app-login',

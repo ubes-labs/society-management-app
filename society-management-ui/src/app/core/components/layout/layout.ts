@@ -3,11 +3,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
-import { Login } from '../login/login';
 
 @Component({
   selector: 'app-layout',
-  imports: [MatSidenavModule, MatButtonModule, MatToolbarModule, RouterModule, Login],
+  imports: [MatSidenavModule, MatButtonModule, MatToolbarModule, RouterModule],
   templateUrl: './layout.html',
   styleUrl: './layout.scss',
   standalone: true,
