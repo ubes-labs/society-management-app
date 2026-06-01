@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - "society-management-ui/**"
+      - ".github/workflows/deploy-pages.yml"
 
 permissions:
   contents: read
