@@ -58,7 +58,7 @@ jobs:
 
       - name: Deploy Migrations to Supabase
         run: |
-          supabase db push
+          supabase db push --yes
         env:
           SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
 
