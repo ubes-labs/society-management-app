@@ -1,4 +1,4 @@
-name: Deploy database chanegs to supabse
+name: Deploy database changes to supabase
 
 on:
   push:
