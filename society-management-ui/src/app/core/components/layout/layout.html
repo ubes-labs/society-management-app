@@ -1,6 +1,8 @@
-<mat-drawer-container>
-  <mat-drawer #drawer mode="over"><app-nav-panel></app-nav-panel></mat-drawer>
-  <mat-drawer-content
+<mat-sidenav-container>
+  <mat-sidenav #drawer mode="over" ngClass="mat-sidenav-wrapper"
+    ><app-nav-panel></app-nav-panel
+  ></mat-sidenav>
+  <mat-sidenav-content
     ><mat-toolbar>
       <button matMiniFab aria-label="Open menu" (click)="drawer.toggle()">
         <mat-icon>menu</mat-icon>
@@ -9,5 +11,6 @@
     </mat-toolbar>
     <main>
       <router-outlet></router-outlet>
-    </main> </mat-drawer-content
-></mat-drawer-container>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>

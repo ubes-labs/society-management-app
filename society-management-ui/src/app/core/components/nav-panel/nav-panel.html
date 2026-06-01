@@ -1,16 +1,10 @@
-<mat-list class="list-container">
-  @for (item of topNavRoutes; track $index) {
-    <mat-list-item>
-      <button matButton [routerLink]="item.route">
-        {{ item.label }}
-      </button>
-    </mat-list-item>
+<mat-nav-list>
+  @if (auth.user()) {
+    <a mat-list-item (click)="logOut()"> Log Out </a>
+  } @else {
+    <a mat-list-item [routerLink]="approutes.LOGIN"> Log In </a>
   }
-  <mat-list-item>
-    @if (auth.user()) {
-      <button matButton (click)="logOut()">Log Out</button>
-    } @else {
-      <button matButton routerLink="login">Log In</button>
-    }
-  </mat-list-item>
-</mat-list>
+  <a mat-list-item [routerLink]="navRoutes.dashboard.route">
+    {{ navRoutes.dashboard.label }}
+  </a>
+</mat-nav-list>

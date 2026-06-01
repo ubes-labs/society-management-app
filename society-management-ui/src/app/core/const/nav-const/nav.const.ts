@@ -1,15 +1,9 @@
-export const topNavRoutes = [
-  {
-    label: 'Dashboard',
-    route: 'dashboard',
-    icon: '',
-  },
-];
+import { appRoutes } from '../route-const/route.const';
 
-export const bottomNavRoutes = [
-  {
-    label: 'Login',
-    route: 'login',
+export const navRoutes = {
+  dashboard: {
+    label: 'Dashboard',
+    route: appRoutes.DASHBOARD,
     icon: '',
   },
-];
+};
