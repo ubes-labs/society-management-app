@@ -2,8 +2,14 @@
   .mat-sidenav-container {
     height: calc(100vh - 64px);
 
-    .mat-sidenav {
-      width: auto;
+    mat-sidenav {
+      &.w-20 {
+        width: 20%;
+      }
+
+      &.w-50 {
+        width: 50%;
+      }
     }
   }
 }
