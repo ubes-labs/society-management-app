@@ -11,5 +11,11 @@
         width: 50%;
       }
     }
+
+    mat-sidenav-content {
+      &.p-15 {
+        padding: 15px;
+      }
+    }
   }
 }

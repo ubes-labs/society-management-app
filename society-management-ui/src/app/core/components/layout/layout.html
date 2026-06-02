@@ -4,7 +4,7 @@
     <mat-sidenav [class]="{ 'w-50': isHandset(), 'w-20': !isHandset() }" #drawer mode="over"
       ><app-nav-panel></app-nav-panel
     ></mat-sidenav>
-    <mat-sidenav-content>
+    <mat-sidenav-content class="p-15">
       <main>
         <router-outlet></router-outlet>
       </main>

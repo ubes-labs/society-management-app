@@ -4,6 +4,11 @@ export const navRoutes = {
   dashboard: {
     label: 'Dashboard',
     route: appRoutes.DASHBOARD,
-    icon: '',
+    icon: 'home',
+  },
+  logout: {
+    label: 'Logout',
+    route: appRoutes.LOGOUT,
+    icon: 'account_circle',
   },
 };

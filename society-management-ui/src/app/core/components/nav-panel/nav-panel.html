@@ -1,10 +1,15 @@
 <mat-nav-list>
   @if (auth.user()) {
-    <a mat-list-item (click)="logOut()"> Log Out </a>
+    <a mat-list-item [routerLink]="navRoutes.logout.route"
+      ><mat-icon matListItemIcon>{{ navRoutes.logout.icon }}</mat-icon> Log Out
+    </a>
   } @else {
-    <a mat-list-item [routerLink]="approutes.LOGIN"> Log In </a>
+    <a mat-list-item [routerLink]="approutes.LOGIN"
+      ><mat-icon matListItemIcon>{{ navRoutes.logout.icon }}</mat-icon> Log In
+    </a>
   }
-  <a mat-list-item [routerLink]="navRoutes.dashboard.route">
+  <a mat-list-item [routerLink]="navRoutes.dashboard.route"
+    ><mat-icon matListItemIcon>{{ navRoutes.dashboard.icon }}</mat-icon>
     {{ navRoutes.dashboard.label }}
   </a>
 </mat-nav-list>
