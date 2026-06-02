@@ -7,6 +7,8 @@ import { RouterModule } from '@angular/router';
 import { NavPanel } from '../nav-panel/nav-panel';
 import { TopNavBar } from '../top-nav-bar/top-nav-bar';
 import { BreakpointObserver } from '../../services/breakpoint-observer/breakpoint-observer';
+import { Footer } from '../footer/footer';
+import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
   selector: 'app-layout',
@@ -16,8 +18,10 @@ import { BreakpointObserver } from '../../services/breakpoint-observer/breakpoin
     MatToolbarModule,
     RouterModule,
     MatIconModule,
+    MatDividerModule,
     TopNavBar,
     NavPanel,
+    Footer,
   ],
   templateUrl: './layout.html',
   styleUrl: './layout.scss',

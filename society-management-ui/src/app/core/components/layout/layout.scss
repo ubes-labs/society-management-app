@@ -16,6 +16,13 @@
       &.p-15 {
         padding: 15px;
       }
+
+      main {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        height: 100%;
+      }
     }
   }
 }
