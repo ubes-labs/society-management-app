@@ -1,0 +1,5 @@
+@mixin mat-toolbar-theme() {
+  .mat-toolbar-custom {
+    background: var(--mat-sys-inverse-primary);
+  }
+}

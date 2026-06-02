@@ -4,6 +4,7 @@
 // Learn more about theming and how to use it for your application's
 // custom components at https://material.angular.dev/guide/theming
 @use '@angular/material' as mat;
+@use './app/styles/mat-toolbar.theme' as mat-toolbar-theme;
 
 html {
   height: 100%;
@@ -35,5 +36,7 @@ body {
   // Reset the user agent margin.
   margin: 0;
   height: 100%;
+
+  @include mat-toolbar-theme.mat-toolbar-theme();
 }
 /* You can add global styles to this file, and also import other style files */

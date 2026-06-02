@@ -1,16 +1,13 @@
-<mat-sidenav-container>
-  <mat-sidenav #drawer mode="over" ngClass="mat-sidenav-wrapper"
-    ><app-nav-panel></app-nav-panel
-  ></mat-sidenav>
-  <mat-sidenav-content
-    ><mat-toolbar>
-      <button matMiniFab aria-label="Open menu" (click)="drawer.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span>Society Manangement System</span>
-    </mat-toolbar>
-    <main>
-      <router-outlet></router-outlet>
-    </main>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<div class="wrapper">
+  <app-top-nav-bar (toggleSidenav)="drawer.toggle()"></app-top-nav-bar>
+  <mat-sidenav-container>
+    <mat-sidenav #drawer mode="over" ngClass="mat-sidenav-wrapper"
+      ><app-nav-panel></app-nav-panel
+    ></mat-sidenav>
+    <mat-sidenav-content>
+      <main>
+        <router-outlet></router-outlet>
+      </main>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

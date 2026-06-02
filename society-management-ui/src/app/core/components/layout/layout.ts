@@ -5,6 +5,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { NavPanel } from '../nav-panel/nav-panel';
+import { TopNavBar } from '../top-nav-bar/top-nav-bar';
 
 @Component({
   selector: 'app-layout',
@@ -14,6 +15,7 @@ import { NavPanel } from '../nav-panel/nav-panel';
     MatToolbarModule,
     RouterModule,
     MatIconModule,
+    TopNavBar,
     NavPanel,
   ],
   templateUrl: './layout.html',

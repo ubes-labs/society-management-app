@@ -1,0 +1,11 @@
+<mat-toolbar class="mat-toolbar-custom">
+  <div class="mat-toolbar-container">
+    <button matMiniFab aria-label="Open menu" (click)="toggleSidenav.emit()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <img src="company_logo.png" alt="Logo" class="logo" />
+    @if (!isHandset()) {
+      <h1>{{ appTitle }}</h1>
+    }
+  </div>
+</mat-toolbar>
