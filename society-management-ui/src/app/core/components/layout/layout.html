@@ -2,7 +2,7 @@
   <app-top-nav-bar (toggleSidenav)="drawer.toggle()"></app-top-nav-bar>
   <mat-sidenav-container>
     <mat-sidenav [class]="{ 'w-50': isHandset(), 'w-auto': !isHandset() }" #drawer mode="over"
-      ><app-nav-panel></app-nav-panel
+      ><app-nav-panel (menuItemsClicked)="drawer.toggle()"></app-nav-panel
     ></mat-sidenav>
     <mat-sidenav-content class="p-15">
       <main>

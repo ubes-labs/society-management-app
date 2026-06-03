@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { Router, RouterModule } from '@angular/router';
@@ -21,6 +21,8 @@ import { AuthService, langConst, navRoutes } from '../..';
   styleUrl: './nav-panel.scss',
 })
 export class NavPanel {
+  @Output() menuItemsClicked = new EventEmitter<void>();
+
   navRoutes = navRoutes;
   languages = Object.values(langConst)?.map((val) => ({ key: val.value, label: val.label })) ?? [];
   windowLocation = location;
@@ -30,7 +32,8 @@ export class NavPanel {
 
   async logOut() {
     await this.auth.logout();
-    return this.router.navigate([navRoutes.login.route]);
+    await this.router.navigate([navRoutes.login.route]);
+    this.menuItemsClicked.emit();
   }
 
   switchLanguage(lang: string) {
