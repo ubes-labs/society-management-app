@@ -1,14 +1,17 @@
-import { appRoutes } from '../route-const/route.const';
-
 export const navRoutes = {
   dashboard: {
     label: 'Dashboard',
-    route: appRoutes.DASHBOARD,
+    route: 'dashboard',
     icon: 'home',
   },
   logout: {
-    label: 'Logout',
-    route: appRoutes.LOGOUT,
+    label: 'Log Out',
+    route: '',
+    icon: 'account_circle',
+  },
+  login: {
+    label: 'Log In',
+    route: 'login',
     icon: 'account_circle',
   },
 };
