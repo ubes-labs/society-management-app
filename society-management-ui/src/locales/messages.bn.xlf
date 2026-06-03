@@ -1,15 +1,114 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="en-US" datatype="plaintext" original="ng2.template">
-    <body>
-      <trans-unit id="footerLine1" datatype="html">
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en-US">
+  <file id="ngi18n" original="ng.template">
+
+    <unit id="footerDesignDevelopByText">
+      <segment>
         <source>Designed and developed by Akashneel Ghosh.</source>
-        <target>আকাশনীল ঘোষ দ্বারা ডিজাইন এবং উন্নত।</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/components/footer/footer.html</context>
-          <context context-type="linenumber">2,3</context>
-        </context-group>
-      </trans-unit>
-    </body>
+        <target>আকাশনিল ঘোষ দ্বারা নকশা ও উন্নয়ন করা হয়েছে।</target>
+      </segment>
+    </unit>
+
+    <unit id="footerCopyrightText">
+      <segment>
+        <source>2026 Society Management System App. All rights reserved.</source>
+        <target>২০২৬ সমাজ ব্যবস্থাপনা ব্যবস্থা অ্যাপ। সর্বস্বত্ব সংরক্ষিত।</target>
+      </segment>
+    </unit>
+
+    <unit id="footerLicenseText">
+      <segment>
+        <source>Licensed under the MIT License.</source>
+        <target>এমআইটি লাইসেন্সের অধীনে লাইসেন্সপ্রাপ্ত।</target>
+      </segment>
+    </unit>
+
+    <unit id="contactUsEmailTooltip">
+      <segment>
+        <source>Contact Us</source>
+        <target>আমাদের সাথে যোগাযোগ করুন</target>
+      </segment>
+    </unit>
+
+    <unit id="openMenuAriaLabel">
+      <segment>
+        <source>Open menu</source>
+        <target>মেনু খুলুন</target>
+      </segment>
+    </unit>
+
+    <unit id="logoAltText">
+      <segment>
+        <source>Logo</source>
+        <target>লোগো</target>
+      </segment>
+    </unit>
+
+    <unit id="appTitleLabel">
+      <segment>
+        <source>Society Management System</source>
+        <target>সমাজ ব্যবস্থাপনা ব্যবস্থা</target>
+      </segment>
+    </unit>
+
+    <unit id="loginWithGoogleText">
+      <segment>
+        <source>Login with Google</source>
+        <target>গুগল দিয়ে লগইন করুন</target>
+      </segment>
+    </unit>
+
+    <unit id="dashboardLabel">
+      <segment>
+        <source>Dashboard</source>
+        <target>ড্যাশবোর্ড</target>
+      </segment>
+    </unit>
+
+    <unit id="logOutLabel">
+      <segment>
+        <source>Log Out</source>
+        <target>লগ আউট করুন</target>
+      </segment>
+    </unit>
+
+    <unit id="loginLabel">
+      <segment>
+        <source>Log In</source>
+        <target>লগ ইন করুন</target>
+      </segment>
+    </unit>
+
+    <unit id="changeLanguageLabel">
+      <segment>
+        <source>Change Language</source>
+        <target>ভাষা পরিবর্তন করুন</target>
+      </segment>
+    </unit>
+
+    <unit id="userProfileLabel">
+      <segment>
+        <source>User Profile</source>
+        <target>ব্যবহারকারী প্রোফাইল</target>
+      </segment>
+    </unit>
+
+    <unit id="dashboardWelcomeHeader">
+      <notes>
+        <note category="location">src/app/features/dashboard/dashboard.html:4,6</note>
+      </notes>
+      <segment>
+        <source> Welcome <ph id="0" equiv="INTERPOLATION" disp="{{ authService.user()?.user_metadata?.['full_name'] }}"/> </source>
+        <target>স্বাগতম <ph id="0" equiv="INTERPOLATION" disp="{{ authService.user()?.user_metadata?.['full_name'] }}"/> </target>
+      </segment>
+    </unit>
+
+    <unit id="dashboardCardTitle">
+      <segment>
+        <source>Dashboard</source>
+        <target>ড্যাশবোর্ড</target>
+      </segment>
+    </unit>
+
   </file>
 </xliff>

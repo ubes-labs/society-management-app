@@ -1,14 +1,125 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="en-US" datatype="plaintext" original="ng2.template">
-    <body>
-      <trans-unit id="footerLine1" datatype="html">
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en-US">
+  <file id="ngi18n" original="ng.template">
+    <unit id="footerDesignDevelopByText">
+      <notes>
+        <note category="location">src/app/core/components/footer/footer.html:2,5</note>
+      </notes>
+      <segment>
         <source>Designed and developed by Akashneel Ghosh.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/components/footer/footer.html</context>
-          <context context-type="linenumber">2,3</context>
-        </context-group>
-      </trans-unit>
-    </body>
+      </segment>
+    </unit>
+    <unit id="footerCopyrightText">
+      <notes>
+        <note category="location">src/app/core/components/footer/footer.html:6,9</note>
+      </notes>
+      <segment>
+        <source>2026 Society Management System App. All rights reserved.</source>
+      </segment>
+    </unit>
+    <unit id="footerLicenseText">
+      <notes>
+        <note category="location">src/app/core/components/footer/footer.html:9,10</note>
+      </notes>
+      <segment>
+        <source>Licensed under the MIT License.</source>
+      </segment>
+    </unit>
+    <unit id="contactUsEmailTooltip">
+      <notes>
+        <note category="location">src/app/core/components/footer/footer.html:15,16</note>
+      </notes>
+      <segment>
+        <source>Contact Us</source>
+      </segment>
+    </unit>
+    <unit id="openMenuAriaLabel">
+      <notes>
+        <note category="location">src/app/core/components/top-nav-bar/top-nav-bar.html:5,6</note>
+      </notes>
+      <segment>
+        <source>Open menu</source>
+      </segment>
+    </unit>
+    <unit id="logoAltText">
+      <notes>
+        <note category="location">src/app/core/components/top-nav-bar/top-nav-bar.html:11</note>
+      </notes>
+      <segment>
+        <source>Logo</source>
+      </segment>
+    </unit>
+    <unit id="appTitleLabel">
+      <notes>
+        <note category="location">src/app/core/const/app-const/app.const.ts:2</note>
+      </notes>
+      <segment>
+        <source>Society Management System</source>
+      </segment>
+    </unit>
+    <unit id="loginWithGoogleText">
+      <notes>
+        <note category="location">src/app/core/const/app-const/app.const.ts:3</note>
+      </notes>
+      <segment>
+        <source>Login with Google</source>
+      </segment>
+    </unit>
+    <unit id="dashboardLabel">
+      <notes>
+        <note category="location">src/app/core/const/nav-const/nav.const.ts:3</note>
+      </notes>
+      <segment>
+        <source>Dashboard</source>
+      </segment>
+    </unit>
+    <unit id="logOutLabel">
+      <notes>
+        <note category="location">src/app/core/const/nav-const/nav.const.ts:8</note>
+      </notes>
+      <segment>
+        <source>Log Out</source>
+      </segment>
+    </unit>
+    <unit id="loginLabel">
+      <notes>
+        <note category="location">src/app/core/const/nav-const/nav.const.ts:13</note>
+      </notes>
+      <segment>
+        <source>Log In</source>
+      </segment>
+    </unit>
+    <unit id="changeLanguageLabel">
+      <notes>
+        <note category="location">src/app/core/const/nav-const/nav.const.ts:18</note>
+      </notes>
+      <segment>
+        <source>Change Language</source>
+      </segment>
+    </unit>
+    <unit id="userProfileLabel">
+      <notes>
+        <note category="location">src/app/core/const/nav-const/nav.const.ts:23</note>
+      </notes>
+      <segment>
+        <source>User Profile</source>
+      </segment>
+    </unit>
+    <unit id="dashboardWelcomeHeader">
+      <notes>
+        <note category="location">src/app/features/dashboard/dashboard.html:4,6</note>
+      </notes>
+      <segment>
+        <source> Welcome <ph id="0" equiv="INTERPOLATION" disp="{{ authService.user()?.user_metadata?.[&apos;full_name&apos;] }}"/> </source>
+      </segment>
+    </unit>
+    <unit id="dashboardCardTitle">
+      <notes>
+        <note category="location">src/app/features/dashboard/dashboard.html:8,9</note>
+      </notes>
+      <segment>
+        <source>Dashboard</source>
+      </segment>
+    </unit>
   </file>
 </xliff>

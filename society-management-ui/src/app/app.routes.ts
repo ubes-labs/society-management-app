@@ -1,22 +1,20 @@
 import { Routes } from '@angular/router';
-import { authGuard, navRoutes } from './core';
-
-const appTitle = 'Society Management System';
+import { appConst, authGuard, navMenuItems } from './core';
 
 export const routes: Routes = [
   {
-    path: navRoutes.login.route,
-    title: `${navRoutes.login.label} | ${appTitle}`,
+    path: navMenuItems.login.route,
+    title: `${navMenuItems.login.label} | ${appConst.appTitle}`,
     loadComponent: () => import('./features/login/login').then((c) => c.Login),
   },
   {
-    path: navRoutes.dashboard.route,
+    path: navMenuItems.dashboard.route,
     canActivate: [authGuard],
-    title: `${navRoutes.dashboard.label} | ${appTitle}`,
+    title: `${navMenuItems.dashboard.label} | ${appConst.appTitle}`,
     loadComponent: () => import('./features/dashboard/dashboard').then((c) => c.Dashboard),
   },
   {
     path: '**',
-    redirectTo: navRoutes.dashboard.route,
+    redirectTo: navMenuItems.dashboard.route,
   },
 ];

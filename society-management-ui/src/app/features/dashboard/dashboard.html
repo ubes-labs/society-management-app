@@ -1,9 +1,11 @@
 <div class="container">
   <div class="header">
-    <h1>Welcome {{ authService.user()?.user_metadata?.['full_name'] }}</h1>
+    <h1 i18n="@@dashboardWelcomeHeader">
+      Welcome {{ authService.user()?.user_metadata?.['full_name'] }}
+    </h1>
   </div>
   <mat-card>
-    <mat-card-title>Dashboard</mat-card-title>
+    <mat-card-title i18n="@@dashboardCardTitle">Dashboard</mat-card-title>
     <mat-card-content>
       <p>This is the dashboard page.</p>
     </mat-card-content>

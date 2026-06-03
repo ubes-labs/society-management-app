@@ -100,7 +100,8 @@
         "extract-i18n": {
           "builder": "@angular/build:extract-i18n",
           "options": {
-            "outputPath": "src/locales"
+            "outputPath": "src/locales",
+            "format": "xlf2"
           }
         }
       }

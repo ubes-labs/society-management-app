@@ -4,22 +4,23 @@
       <mat-list-item>
         @if (auth.user()) {
           <button matButton [matMenuTriggerFor]="profileMenu">
-            <mat-icon>{{ navRoutes.login.icon }}</mat-icon
-            >User Profile
+            <mat-icon>{{ navMenuItems.userProfile.icon }}</mat-icon
+            >{{ navMenuItems.userProfile.label }}
           </button>
         } @else {
           <a
             matButton
-            [routerLink]="navRoutes.login.route"
+            [routerLink]="navMenuItems.login.route"
             (click)="menuItemsClicked.emit()"
             routerLinkActive="active-link"
-            ><mat-icon>{{ navRoutes.login.icon }}</mat-icon> {{ navRoutes.login.label }}
+            ><mat-icon>{{ navMenuItems.login.icon }}</mat-icon> {{ navMenuItems.login.label }}
           </a>
         }
       </mat-list-item>
       <mat-list-item>
         <button matButton [matMenuTriggerFor]="changeLanguage">
-          <mat-icon>language</mat-icon>Change Language
+          <mat-icon>{{ navMenuItems.changeLanguage.icon }}</mat-icon
+          >{{ navMenuItems.changeLanguage.label }}
         </button>
       </mat-list-item>
     </mat-list>
@@ -29,18 +30,18 @@
     <mat-nav-list>
       <a
         mat-list-item
-        [routerLink]="navRoutes.dashboard.route"
+        [routerLink]="navMenuItems.dashboard.route"
         (click)="menuItemsClicked.emit()"
         routerLinkActive="active-link"
-        ><mat-icon matListItemIcon>{{ navRoutes.dashboard.icon }}</mat-icon>
-        {{ navRoutes.dashboard.label }}
+        ><mat-icon matListItemIcon>{{ navMenuItems.dashboard.icon }}</mat-icon>
+        {{ navMenuItems.dashboard.label }}
       </a>
     </mat-nav-list>
   </div>
 </div>
 <mat-menu #profileMenu>
   <button mat-menu-item (click)="logOut()">
-    <mat-icon>logout</mat-icon> {{ navRoutes.logout.label }}
+    <mat-icon>{{ navMenuItems.logout.icon }}</mat-icon> {{ navMenuItems.logout.label }}
   </button>
 </mat-menu>
 <mat-menu #changeLanguage>

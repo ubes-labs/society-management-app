@@ -1,17 +1,27 @@
-export const navRoutes = {
+export const navMenuItems = {
   dashboard: {
-    label: 'Dashboard',
+    label: $localize`:@@dashboardLabel:Dashboard`,
     route: 'dashboard',
     icon: 'home',
   },
   logout: {
-    label: 'Log Out',
+    label: $localize`:@@logOutLabel:Log Out`,
     route: '',
-    icon: 'account_circle',
+    icon: 'logout',
   },
   login: {
-    label: 'Log In',
+    label: $localize`:@@loginLabel:Log In`,
     route: 'login',
+    icon: 'account_circle',
+  },
+  changeLanguage: {
+    label: $localize`:@@changeLanguageLabel:Change Language`,
+    route: '',
+    icon: 'language',
+  },
+  userProfile: {
+    label: $localize`:@@userProfileLabel:User Profile`,
+    route: '',
     icon: 'account_circle',
   },
 };

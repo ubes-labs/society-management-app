@@ -3,6 +3,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BreakpointObserver } from '../../services/breakpoint-observer/breakpoint-observer';
+import { appConst } from '../../const/app-const/app.const';
 
 @Component({
   selector: 'app-top-nav-bar',
@@ -13,8 +14,8 @@ import { BreakpointObserver } from '../../services/breakpoint-observer/breakpoin
 export class TopNavBar {
   @Output() toggleSidenav = new EventEmitter<void>();
 
-  private readonly breakPointObserver = inject(BreakpointObserver);
+  private readonly _breakPointObserver = inject(BreakpointObserver);
 
-  readonly appTitle = 'Society Management System';
-  readonly isHandset = this.breakPointObserver.isHandset;
+  readonly appTitle = appConst.appTitle;
+  readonly isHandset = this._breakPointObserver.isHandset;
 }
