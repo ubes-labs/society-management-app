@@ -66,6 +66,12 @@ jobs:
         working-directory: ./society-management-ui
         run: npm run test --watch=false --browsers=ChromeHeadless
 
+      - name: Configure Language landing page
+        working-directory: ./society-management-ui
+        run:
+          cp dist/society-management-ui/browser/en-US/html/index.redirect.html \
+          dist/society-management-ui/browser/index.html
+
       - name: Setup Github pages
         uses: actions/configure-pages@v5
 

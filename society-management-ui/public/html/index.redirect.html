@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Society Management</title>
+    <script>
+      const lang = navigator?.language?.toLowerCase() ?? null;
+      if (lang?.startsWith('hi')) location.replace('/society-management-app/hi/#/');
+      else if (lang?.startsWith('bn')) location.replace('/society-management-app/bn/#/');
+      else location.replace('/society-management-app/en-US/#/');
+    </script>
+  </head>
+  <body></body>
+</html>
