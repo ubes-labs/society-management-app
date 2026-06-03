@@ -1,19 +1,29 @@
 import { Component, inject } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
-import { navRoutes } from '../../const/nav-const/nav.const';
 import { MatButtonModule } from '@angular/material/button';
 import { Router, RouterModule } from '@angular/router';
-import { AuthService } from '../../services/auth/auth.service';
 import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDividerModule } from '@angular/material/divider';
+import { AuthService, langConst, navRoutes } from '../..';
 
 @Component({
   selector: 'app-nav-panel',
-  imports: [MatListModule, MatButtonModule, RouterModule, MatIconModule],
+  imports: [
+    MatListModule,
+    MatButtonModule,
+    RouterModule,
+    MatIconModule,
+    MatMenuModule,
+    MatDividerModule,
+  ],
   templateUrl: './nav-panel.html',
   styleUrl: './nav-panel.scss',
 })
 export class NavPanel {
   navRoutes = navRoutes;
+  languages = Object.values(langConst)?.map((val) => ({ key: val.value, label: val.label })) ?? [];
+  windowLocation = location;
 
   readonly auth = inject(AuthService);
   readonly router = inject(Router);
@@ -21,5 +31,16 @@ export class NavPanel {
   async logOut() {
     await this.auth.logout();
     return this.router.navigate([navRoutes.login.route]);
+  }
+
+  switchLanguage(lang: string) {
+    if (this.windowLocation.hostname !== 'localhost' && lang) {
+      const paths = this.windowLocation.pathname?.split('/') ?? [];
+      if (paths?.length === 4) {
+        paths[2] = lang;
+        const finalPath = paths.join('/');
+        location.replace(`${finalPath}${this.windowLocation.hash}`);
+      }
+    }
   }
 }
