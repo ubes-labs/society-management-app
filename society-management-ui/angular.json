@@ -16,6 +16,13 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "bn": "src/locales/messages.bn.xlf",
+          "hi": "src/locales/messages.hi.xlf"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular/build:application",
@@ -46,12 +53,25 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "localize": true
             },
             "development": {
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
+            },
+            "development-bn": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "localize": ["bn"]
+            },
+            "development-hi": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "localize": ["hi"]
             }
           },
           "defaultConfiguration": "production"
@@ -64,12 +84,24 @@
             },
             "development": {
               "buildTarget": "society-management-ui:build:development"
+            },
+            "development-hi": {
+              "buildTarget": "society-management-ui:build:development-hi"
+            },
+            "development-bn": {
+              "buildTarget": "society-management-ui:build:development-bn"
             }
           },
           "defaultConfiguration": "development"
         },
         "test": {
           "builder": "@angular/build:unit-test"
+        },
+        "extract-i18n": {
+          "builder": "@angular/build:extract-i18n",
+          "options": {
+            "outputPath": "src/locales"
+          }
         }
       }
     }
