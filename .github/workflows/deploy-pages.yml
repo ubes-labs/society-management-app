@@ -44,7 +44,6 @@ jobs:
         working-directory: ./society-management-ui
         run: |
           mkdir -p src/environments
-
           cat > src/environments/environment.ts << EOF
           export const environment = {
             production: true,
@@ -77,22 +76,21 @@ jobs:
           APP_NAME: ${{ github.event.repository.name }}
         run: |
           cat > dist/society-management-ui/browser/index.html << EOF
-            <!doctype html>
-            <html lang="en">
-              <head>
-                <meta charset="utf-8" />
-                <title>Society Management</title>
-                <script>
-                  const base = '/${APP_NAME}/';
-                  const lang = navigator?.language?.toLowerCase() ?? null;
-                  if (lang.startsWith('hi')) location.replace(base + 'hi/#/');
-                  else if (lang.startsWith('bn')) location.replace(base + 'bn/#/');
-                  else location.replace(base + 'en-US/#/');
-                </script>
-              </head>
-              <body></body>
-            </html>
-            EOF
+          <!doctype html>
+          <html lang="en">
+            <head>
+              <meta charset="utf-8" />
+              <title>Society Management</title>
+              <script>
+                const base = '/${APP_NAME}/';
+                const lang = navigator?.language?.toLowerCase() ?? null;
+                if (lang.startsWith('hi')) location.replace(base + 'hi/#/');
+                else if (lang.startsWith('bn')) location.replace(base + 'bn/#/');
+                else location.replace(base + 'en-US/#/');
+              </script>
+            </head>
+          </html>            
+          EOF
 
       - name: Setup Github pages
         uses: actions/configure-pages@v5
