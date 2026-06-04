@@ -1,33 +1,32 @@
 import { Injectable, signal } from '@angular/core';
 import { createClient, SupabaseClient, User } from '@supabase/supabase-js';
 import { environment } from '../../../../environments/environment';
-import { supabaseRedirectToUriResolver } from '../../../shared';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private readonly supabase: SupabaseClient<any, 'public', 'public', any, any>;
+  private readonly _supabase: SupabaseClient<any, 'public', 'public', any, any>;
   readonly user = signal<User | null>(null);
 
   constructor() {
-    this.supabase = this._initializeSupabaseClient();
+    this._supabase = this._initializeSupabaseClient();
     this._setUserOnAuth();
   }
 
   // LOGIN WITH GOOGLE
   loginWithGoogle = async () =>
-    this.supabase.auth
+    this._supabase.auth
       .signInWithOAuth({
         provider: 'google',
         options: {
-          redirectTo: supabaseRedirectToUriResolver(),
+          redirectTo: `${location.origin}${location.pathname}`,
         },
       })
       .catch((err) => console.error(err));
 
   // LOGOUT
-  logout = async () => this.supabase.auth.signOut();
+  logout = async () => this._supabase.auth.signOut();
 
-  initialize = () => this.supabase.auth.initialize();
+  initialize = () => this._supabase.auth.initialize();
 
   private _initializeSupabaseClient = () =>
     createClient(environment.supabaseUrl, environment.supabaseAnonKey, {
@@ -37,5 +36,5 @@ export class AuthService {
     });
 
   private _setUserOnAuth = () =>
-    this.supabase.auth.onAuthStateChange((_, session) => this.user.set(session?.user ?? null));
+    this._supabase.auth.onAuthStateChange((_, session) => this.user.set(session?.user ?? null));
 }
