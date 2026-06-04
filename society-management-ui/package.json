@@ -7,7 +7,6 @@
     "start-bn": "ng serve --configuration development-bn",
     "start-hi": "ng serve --configuration development-hi",
     "build": "ng build",
-    "build:prod": "ng build --configuration production --base-href /society-management-app/",
     "extract-i18n": "ng extract-i18n",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

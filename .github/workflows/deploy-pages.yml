@@ -58,19 +58,38 @@ jobs:
         run: |
           ls -la src/environments
 
-      - name: Build ng application
-        working-directory: ./society-management-ui
-        run: npm run build:prod
-
       - name: Execute Unit tests
         working-directory: ./society-management-ui
         run: npm run test --watch=false --browsers=ChromeHeadless
 
+      - name: Build ng application
+        working-directory: ./society-management-ui
+        env:
+          APP_NAME: ${{ github.event.repository.name }}
+        run: npm run build --configuration production --base-href "/${APP_NAME}/"
+
       - name: Configure Language landing page
         working-directory: ./society-management-ui
+        env:
+          APP_NAME: ${{ github.event.repository.name }}
         run: |
-          cp dist/society-management-ui/browser/en-US/html/index.redirect.html \
-          dist/society-management-ui/browser/index.html
+          cat > dist/society-management-ui/browser/index.html << EOF
+            <!doctype html>
+            <html lang="en">
+              <head>
+                <meta charset="utf-8" />
+                <title>Society Management</title>
+                <script>
+                  const base = '/${APP_NAME}/';
+                  const lang = navigator?.language?.toLowerCase() ?? null;
+                  if (lang.startsWith('hi')) location.replace(base + 'hi/#/');
+                  else if (lang.startsWith('bn')) location.replace(base + 'bn/#/');
+                  else location.replace(base + 'en-US/#/');
+                </script>
+              </head>
+              <body></body>
+            </html>
+            EOF
 
       - name: Setup Github pages
         uses: actions/configure-pages@v5
