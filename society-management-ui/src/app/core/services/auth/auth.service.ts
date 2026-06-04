@@ -1,7 +1,7 @@
 import { Injectable, signal } from '@angular/core';
 import { createClient, SupabaseClient, User } from '@supabase/supabase-js';
 import { environment } from '../../../../environments/environment';
-import { supabaseRedirectToUriResolver } from '../../utils';
+import { supabaseRedirectToUriResolver } from '../../../shared';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
