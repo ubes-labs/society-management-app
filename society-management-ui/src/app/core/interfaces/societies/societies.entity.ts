@@ -34,8 +34,3 @@ export interface apartment extends baseEntity {
   initialSellPrice: number;
   societyLocationUnitId: string;
 }
-
-export interface apartmentOwner extends baseEntity {
-  apartmentId: string;
-  userProfileId: string;
-}

@@ -7,4 +7,3 @@ export * from './const/app-const/app.const';
 export * from './guards/auth-guard/auth-guard';
 export * from './interfaces/base-model/base-model.entity';
 export * from './interfaces/societies/societies.entity';
-export * from './interfaces/user-profile/user-profile.entity';
