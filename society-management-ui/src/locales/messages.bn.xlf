@@ -110,5 +110,30 @@
       </segment>
     </unit>
 
+     <unit id="societyLabel">
+      <notes>
+        <note category="location">src/app/core/const/nav-const/nav.const.ts:28</note>
+      </notes>
+      <segment>
+        <source>Society</source>
+      </segment>
+    </unit>
+    <unit id="societyManageLabel">
+      <notes>
+        <note category="location">src/app/core/const/nav-const/nav.const.ts:33</note>
+      </notes>
+      <segment>
+        <source>Manage Society</source>
+      </segment>
+    </unit>
+    <unit id="addNewSocietyLabel">
+      <notes>
+        <note category="location">src/app/features/society/society.ts:16</note>
+      </notes>
+      <segment>
+        <source>Add new society</source>
+      </segment>
+    </unit>
+
   </file>
 </xliff>

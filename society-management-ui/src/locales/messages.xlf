@@ -43,7 +43,7 @@
     </unit>
     <unit id="logoAltText">
       <notes>
-        <note category="location">src/app/core/components/top-nav-bar/top-nav-bar.html:11</note>
+        <note category="location">src/app/core/components/top-nav-bar/top-nav-bar.html:14</note>
       </notes>
       <segment>
         <source>Logo</source>
@@ -105,9 +105,25 @@
         <source>User Profile</source>
       </segment>
     </unit>
+    <unit id="societyLabel">
+      <notes>
+        <note category="location">src/app/core/const/nav-const/nav.const.ts:28</note>
+      </notes>
+      <segment>
+        <source>Society</source>
+      </segment>
+    </unit>
+    <unit id="societyManageLabel">
+      <notes>
+        <note category="location">src/app/core/const/nav-const/nav.const.ts:33</note>
+      </notes>
+      <segment>
+        <source>Manage Society</source>
+      </segment>
+    </unit>
     <unit id="dashboardWelcomeHeader">
       <notes>
-        <note category="location">src/app/features/dashboard/dashboard.html:4,6</note>
+        <note category="location">src/app/features/dashboard/dashboard.html:3,5</note>
       </notes>
       <segment>
         <source> Welcome <ph id="0" equiv="INTERPOLATION" disp="{{ authService.user()?.user_metadata?.[&apos;full_name&apos;] }}"/> </source>
@@ -115,10 +131,18 @@
     </unit>
     <unit id="dashboardCardTitle">
       <notes>
-        <note category="location">src/app/features/dashboard/dashboard.html:8,9</note>
+        <note category="location">src/app/features/dashboard/dashboard.html:6,7</note>
       </notes>
       <segment>
         <source>Dashboard</source>
+      </segment>
+    </unit>
+    <unit id="addNewSocietyLabel">
+      <notes>
+        <note category="location">src/app/features/society/society.ts:16</note>
+      </notes>
+      <segment>
+        <source>Add new society</source>
       </segment>
     </unit>
   </file>

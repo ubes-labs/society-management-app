@@ -24,4 +24,14 @@ export const navMenuItems = {
     route: '',
     icon: 'account_circle',
   },
+  society: {
+    label: $localize`:@@societyLabel:Society`,
+    route: 'society',
+    icon: 'account_circle',
+  },
+  societyManage: {
+    label: $localize`:@@societyManageLabel:Manage Society`,
+    route: 'manage',
+    icon: 'account_circle',
+  },
 };

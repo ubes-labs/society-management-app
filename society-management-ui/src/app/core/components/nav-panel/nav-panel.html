@@ -26,8 +26,8 @@
     </mat-list>
   </div>
   <mat-divider></mat-divider>
-  <div class="second-panel">
-    <mat-nav-list>
+  <mat-nav-list>
+    <div class="flex flex-col gap-2">
       <a
         mat-list-item
         [routerLink]="navMenuItems.dashboard.route"
@@ -36,9 +36,18 @@
         ><mat-icon matListItemIcon>{{ navMenuItems.dashboard.icon }}</mat-icon>
         {{ navMenuItems.dashboard.label }}
       </a>
-    </mat-nav-list>
-  </div>
+      <a
+        mat-list-item
+        [routerLink]="navMenuItems.society.route"
+        (click)="menuItemsClicked.emit()"
+        routerLinkActive="active-link"
+        ><mat-icon matListItemIcon>{{ navMenuItems.society.icon }}</mat-icon>
+        {{ navMenuItems.society.label }}
+      </a>
+    </div>
+  </mat-nav-list>
 </div>
+
 <mat-menu #profileMenu>
   <button mat-menu-item (click)="logOut()">
     <mat-icon>{{ navMenuItems.logout.icon }}</mat-icon> {{ navMenuItems.logout.label }}
