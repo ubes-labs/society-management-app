@@ -3,9 +3,14 @@ import { CanActivateFn, Router } from '@angular/router';
 import { AuthService } from '../../services/auth/auth.service';
 import { navMenuItems } from '../../const/nav-const/nav.const';
 
-export const authGuard: CanActivateFn = () => {
+export const authGuard: CanActivateFn = async () => {
   const authService = inject(AuthService);
   const router = inject(Router);
 
-  return !authService.user() ? router.navigate([navMenuItems.login.route]) : true;
+  const isSessionInitialized = await authService.isSessionInitialized();
+  if (isSessionInitialized) {
+    await authService.setUserPermissions();
+    return true;
+  }
+  return router.navigate([navMenuItems.login.route]);
 };
