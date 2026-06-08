@@ -137,12 +137,60 @@
         <source>Dashboard</source>
       </segment>
     </unit>
+    <unit id="backToSocietyLabel">
+      <notes>
+        <note category="location">src/app/features/society-manage/society-manage.html:2,5</note>
+      </notes>
+      <segment>
+        <source>Back to society list</source>
+      </segment>
+    </unit>
+    <unit id="createNewSocietyTitle">
+      <notes>
+        <note category="location">src/app/features/society-manage/society-manage.html:7,8</note>
+      </notes>
+      <segment>
+        <source>Create new society</source>
+      </segment>
+    </unit>
+    <unit id="saveChangesLabel">
+      <notes>
+        <note category="location">src/app/features/society-manage/society-manage.html:187,189</note>
+      </notes>
+      <segment>
+        <source> Save Changes </source>
+      </segment>
+    </unit>
+    <unit id="cancelLabel">
+      <notes>
+        <note category="location">src/app/features/society-manage/society-manage.html:189,190</note>
+      </notes>
+      <segment>
+        <source>Cancel</source>
+      </segment>
+    </unit>
     <unit id="addNewSocietyLabel">
       <notes>
         <note category="location">src/app/features/society/society.ts:16</note>
       </notes>
       <segment>
         <source>Add new society</source>
+      </segment>
+    </unit>
+    <unit id="noLabel">
+      <notes>
+        <note category="location">src/app/shared/components/dialogs/yesno.dialog.ts:17,18</note>
+      </notes>
+      <segment>
+        <source>No</source>
+      </segment>
+    </unit>
+    <unit id="yesLabel">
+      <notes>
+        <note category="location">src/app/shared/components/dialogs/yesno.dialog.ts:19,20</note>
+      </notes>
+      <segment>
+        <source> Yes </source>
       </segment>
     </unit>
   </file>

@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
@@ -9,7 +9,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
-import { navMenuItems } from '../../core';
+import { navMenuItems, SocietyApiService } from '../../core';
+import { MatDialog } from '@angular/material/dialog';
+import {
+  convertToSocietyCreateRpcFromObject,
+  convertToSocietyFromForm,
+  initializeSocietyForm,
+  YesNoDialog,
+} from '../../shared';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-society-manage',
@@ -33,26 +41,13 @@ export class SocietyManage implements OnInit {
   private readonly _activatedRoute = inject(ActivatedRoute);
   private readonly _formBuilder = inject(FormBuilder);
   private readonly _router = inject(Router);
+  private readonly _matDialog = inject(MatDialog);
+  private readonly _societyApiService = inject(SocietyApiService);
 
   pageMode: 'create' | 'edit' = 'create';
   readonly navMenuItems = navMenuItems;
 
-  pageForm = this._formBuilder.group({
-    societyName: ['', Validators.required],
-    societyDescription: ['', Validators.required],
-    societyContactEmail: ['', Validators.required, Validators.email],
-    societyContactPhone: ['', Validators.required],
-    societyWebsiteUrl: ['', Validators.required],
-    societyCompletionDate: [{ value: '', disabled: true }, Validators.required],
-    societyBuilder: ['', Validators.required],
-    societyPromoter: ['', Validators.required],
-    societyLocationAddress: ['', Validators.required],
-    societyLocationCity: ['', Validators.required, Validators.email],
-    societyLocationState: ['', Validators.required],
-    societyLocationPostalCode: ['', Validators.required],
-    societyLocationDistrict: ['', Validators.required],
-    societyLocationCountry: ['', Validators.required],
-  });
+  pageForm = initializeSocietyForm(this._formBuilder);
 
   ngOnInit(): void {
     const id = this._activatedRoute.snapshot.paramMap.get('id') || undefined;
@@ -61,8 +56,26 @@ export class SocietyManage implements OnInit {
     }
   }
 
-  saveData() {
+  async saveData() {
     if (this.pageForm.valid) {
+      const dialogResponse = await firstValueFrom(
+        this._matDialog
+          .open<
+            YesNoDialog,
+            {
+              headerLabel: string;
+              content: string;
+            },
+            boolean
+          >(YesNoDialog, {
+            data: {
+              headerLabel: 'User Confirmation',
+              content: 'Are you sure you want to save the changes?',
+            },
+          })
+          .afterClosed(),
+      );
+      if (dialogResponse) await this._saveDataEntity();
     }
   }
 
@@ -72,5 +85,14 @@ export class SocietyManage implements OnInit {
 
   async goBackToSocietyPage() {
     return this._router.navigate([navMenuItems.society.route]);
+  }
+
+  private async _saveDataEntity() {
+    const convertedData = convertToSocietyFromForm(this.pageForm);
+    const rpcRequest = convertToSocietyCreateRpcFromObject(
+      convertedData.society,
+      convertedData.societyLocation,
+    );
+    const res = await this._societyApiService.createSociety(rpcRequest);
   }
 }

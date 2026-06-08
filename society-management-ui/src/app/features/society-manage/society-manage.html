@@ -1,8 +1,12 @@
 <div class="mb-4">
-  <a matButton (click)="goBackToSocietyPage()">Back to society list</a>
+  <a matButton (click)="goBackToSocietyPage()" i18n="@@backToSocietyLabel">Back to society list</a>
 </div>
 <mat-card>
-  <mat-card-header><mat-card-title>Create new society</mat-card-title></mat-card-header>
+  <mat-card-header
+    ><mat-card-title i18n="@@createNewSocietyTitle"
+      >Create new society</mat-card-title
+    ></mat-card-header
+  >
   <form [formGroup]="pageForm" (submit)="saveData()">
     <mat-card-content>
       <div class="flex flex-wrap gap-4">
@@ -179,8 +183,10 @@
       </div> </mat-card-content
     ><mat-card-footer
       ><div class="flex gap-4 justify-end p-2">
-        <button matButton type="submit" [disabled]="!pageForm.valid">Save Changes</button>
-        <button matButton (click)="cancelSave()" type="button">Cancel</button>
+        <button matButton type="submit" [disabled]="!pageForm.valid" i18n="@@saveChangesLabel">
+          Save Changes
+        </button>
+        <button matButton (click)="cancelSave()" type="button" i18n="@@cancelLabel">Cancel</button>
       </div></mat-card-footer
     >
   </form></mat-card
