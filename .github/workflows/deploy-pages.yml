@@ -40,6 +40,15 @@ jobs:
         working-directory: ./society-management-ui
         run: npm ci
 
+      - name: Get version
+        id: version
+        working-directory: ./society-management-ui
+        run: |
+          APP_VERSION=$(node -p "require('./package.json').version")
+          GIT_SHA=$(git rev-parse --short HEAD)
+          FULL_VERSION="${APP_VERSION}+${GITHUB_RUN_NUMBER}-${GIT_SHA}"
+          echo "full_version=$FULL_VERSION" >> $GITHUB_OUTPUT
+
       - name: Generate environment.ts
         working-directory: ./society-management-ui
         run: |
@@ -47,6 +56,7 @@ jobs:
           cat > src/environments/environment.ts << EOF
           export const environment = {
             production: true,
+            appVersion: '${{ steps.version.outputs.full_version }}',
             supabaseUrl: '${{ secrets.SUPABASE_URL }}',
             supabaseAnonKey: '${{ secrets.SUPABASE_ANON_KEY }}'
           };

@@ -7,6 +7,9 @@
     >
   </div>
   <div i18n="@@footerLicenseText">Licensed under the MIT License.</div>
+  @if (appVersion) {
+    <div i18n="@@appVersionText">Version: {{ appVersion }}</div>
+  }
   <div class="flex gap-4">
     <a
       mat-icon-button
