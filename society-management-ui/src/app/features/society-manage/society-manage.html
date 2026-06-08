@@ -1,1 +1,187 @@
-<p>society-manage works!</p>
+<div class="mb-4">
+  <a matButton (click)="goBackToSocietyPage()">Back to society list</a>
+</div>
+<mat-card>
+  <mat-card-header><mat-card-title>Create new society</mat-card-title></mat-card-header>
+  <form [formGroup]="pageForm" (submit)="saveData()">
+    <mat-card-content>
+      <div class="flex flex-wrap gap-4">
+        <mat-form-field appearance="fill">
+          <mat-label> Society Name </mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Enter society name"
+            formControlName="societyName"
+          />
+          @if (pageForm.get('societyName')?.hasError('required')) {
+            <mat-error>This field is required</mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label> Society Description </mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Enter society description"
+            formControlName="societyDescription"
+          />
+          @if (pageForm.get('societyDescription')?.hasError('required')) {
+            <mat-error>This field is required</mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label> Society Contact Email </mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Enter society contact email"
+            formControlName="societyContactEmail"
+          />
+          @if (pageForm.get('societyContactEmail')?.hasError('required')) {
+            <mat-error>This field is required</mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label> Society contact phone </mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Enter society contact phone"
+            formControlName="societyContactPhone"
+          />
+          @if (pageForm.get('societyContactPhone')?.hasError('required')) {
+            <mat-error>This field is required</mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label> Society website url </mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Enter society website url"
+            formControlName="societyWebsiteUrl"
+          />
+          @if (pageForm.get('societyWebsiteUrl')?.hasError('required')) {
+            <mat-error>This field is required</mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label> Society completion date </mat-label>
+          <input
+            matInput
+            [matDatepicker]="completionDatePicker"
+            placeholder="Enter society completion date"
+            formControlName="societyCompletionDate"
+          />
+          <mat-datepicker-toggle matIconSuffix [for]="completionDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #completionDatePicker disabled="false"></mat-datepicker>
+          @if (pageForm.get('societyCompletionDate')?.hasError('required')) {
+            <mat-error>This field is required</mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label> Society builder </mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Enter society builder"
+            formControlName="societyBuilder"
+          />
+          @if (pageForm.get('societyBuilder')?.hasError('required')) {
+            <mat-error>This field is required</mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label> Society promoter </mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Enter society promoter"
+            formControlName="societyPromoter"
+          />
+          @if (pageForm.get('societyPromoter')?.hasError('required')) {
+            <mat-error>This field is required</mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label> Society location address </mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Enter society location address"
+            formControlName="societyLocationAddress"
+          />
+          @if (pageForm.get('societyLocationAddress')?.hasError('required')) {
+            <mat-error>This field is required</mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label> Society location city </mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Enter society location city"
+            formControlName="societyLocationCity"
+          />
+          @if (pageForm.get('societyLocationCity')?.hasError('required')) {
+            <mat-error>This field is required</mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label> Society location state </mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Enter society location state"
+            formControlName="societyLocationState"
+          />
+          @if (pageForm.get('societyLocationState')?.hasError('required')) {
+            <mat-error>This field is required</mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label> Society location postal code </mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Enter society location postal code"
+            formControlName="societyLocationPostalCode"
+          />
+          @if (pageForm.get('societyLocationPostalCode')?.hasError('required')) {
+            <mat-error>This field is required</mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label> Society location district </mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Enter society location district"
+            formControlName="societyLocationDistrict"
+          />
+          @if (pageForm.get('societyLocationDistrict')?.hasError('required')) {
+            <mat-error>This field is required</mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label> Society location country </mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Enter society location country"
+            formControlName="societyLocationCountry"
+          />
+          @if (pageForm.get('societyLocationCountry')?.hasError('required')) {
+            <mat-error>This field is required</mat-error>
+          }
+        </mat-form-field>
+      </div> </mat-card-content
+    ><mat-card-footer
+      ><div class="flex gap-4 justify-end p-2">
+        <button matButton type="submit" [disabled]="!pageForm.valid">Save Changes</button>
+        <button matButton (click)="cancelSave()" type="button">Cancel</button>
+      </div></mat-card-footer
+    >
+  </form></mat-card
+>

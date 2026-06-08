@@ -4,7 +4,7 @@ import { environment } from '../../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private readonly _supabase: SupabaseClient<any, 'public', 'public', any, any>;
+  readonly _supabase: SupabaseClient<any, 'public', 'public', any, any>;
   readonly user = signal<User | null>(null);
   readonly userPermissions = signal<any[] | null>([]);
 
