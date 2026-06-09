@@ -66,3 +66,14 @@ export const convertToSocietyCreateRpcFromObject = (
   p_district: societyLocation.district,
   p_location_status: societyLocation.status,
 });
+
+export const convertApiResponseToSociety = (data: any[]) =>
+  data?.map(
+    (val) =>
+      ({
+        name: val['name'],
+        description: val['description'],
+        builder: val['builder'],
+        promoter: val['promoter'],
+      }) as society,
+  );
