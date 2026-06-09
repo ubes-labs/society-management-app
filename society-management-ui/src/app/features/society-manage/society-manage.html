@@ -1,5 +1,7 @@
 <div class="mb-4">
-  <a matButton (click)="goBackToSocietyPage()" i18n="@@backToSocietyLabel">Back to society list</a>
+  <a matButton [routerLink]="'/' + navMenuItems.society.route" i18n="@@backToSocietyLabel"
+    >Back to society list</a
+  >
 </div>
 <mat-card>
   <mat-card-header

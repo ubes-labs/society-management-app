@@ -1,13 +1,12 @@
-<div class="wrapper">
-  <app-top-nav-bar (toggleSidenav)="drawer.toggle()"></app-top-nav-bar>
-  <mat-sidenav-container class="max-sm:h-[calc(100vh-56px)] h-[calc(100vh-64px)]">
-    <mat-sidenav class="!w-auto" #drawer mode="over" [autoFocus]="false"
-      ><app-nav-panel (menuItemsClicked)="drawer.toggle()"></app-nav-panel
-    ></mat-sidenav>
-    <mat-sidenav-content class="p-4 overflow-auto">
-      <main class="flex flex-col gap-4 h-full">
-        <router-outlet></router-outlet> <mat-divider></mat-divider> <app-footer></app-footer>
-      </main>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-</div>
+<app-loading-spinner></app-loading-spinner>
+<app-top-nav-bar (toggleSidenav)="drawer.toggle()"></app-top-nav-bar>
+<mat-sidenav-container class="max-sm:h-[calc(100vh-56px)] h-[calc(100vh-64px)]">
+  <mat-sidenav class="!w-auto" #drawer mode="over" [autoFocus]="false"
+    ><app-nav-panel (menuItemsClicked)="drawer.toggle()"></app-nav-panel
+  ></mat-sidenav>
+  <mat-sidenav-content class="p-4 overflow-auto">
+    <main class="flex flex-col gap-4 h-full">
+      <router-outlet></router-outlet> <mat-divider></mat-divider> <app-footer></app-footer>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>

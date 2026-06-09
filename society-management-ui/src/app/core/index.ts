@@ -1,5 +1,6 @@
 export * from './services/auth/auth.service';
 export * from './services/society-api/society.api.service';
+export * from './services/loading/loading.service';
 export * from './services/breakpoint-observer/breakpoint-observer';
 export * from './components/layout/layout';
 export * from './const/nav-const/nav.const';

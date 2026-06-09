@@ -6,7 +6,6 @@ import { environment } from '../../../../environments/environment';
 export class AuthService {
   readonly _supabase: SupabaseClient<any, 'public', 'public', any, any>;
   readonly user = signal<User | null>(null);
-  readonly userPermissions = signal<any[] | null>([]);
 
   constructor() {
     this._supabase = this._initializeSupabaseClient();
@@ -41,14 +40,4 @@ export class AuthService {
 
   private _setUserOnAuth = () =>
     this._supabase.auth.onAuthStateChange((_, session) => this.user.set(session?.user ?? null));
-
-  setUserPermissions = async () => {
-    if (!!this.userPermissions()?.length) return;
-    const res = await this._supabase.from('v_get_user_society_permissions').select('*');
-    if (res?.status === 200) this.userPermissions.set(res.data ?? []);
-    else {
-      console.error('Error fetching user permissions:', res?.error);
-      this.userPermissions.set([]);
-    }
-  };
 }

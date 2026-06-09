@@ -4,7 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -40,7 +40,6 @@ import { firstValueFrom } from 'rxjs';
 export class SocietyManage implements OnInit {
   private readonly _activatedRoute = inject(ActivatedRoute);
   private readonly _formBuilder = inject(FormBuilder);
-  private readonly _router = inject(Router);
   private readonly _matDialog = inject(MatDialog);
   private readonly _societyApiService = inject(SocietyApiService);
 
@@ -81,10 +80,6 @@ export class SocietyManage implements OnInit {
 
   async cancelSave() {
     this.pageForm.reset();
-  }
-
-  async goBackToSocietyPage() {
-    return this._router.navigate([navMenuItems.society.route]);
   }
 
   private async _saveDataEntity() {

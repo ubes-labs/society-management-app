@@ -8,9 +8,5 @@ export const authGuard: CanActivateFn = async () => {
   const router = inject(Router);
 
   const isSessionInitialized = await authService.isSessionInitialized();
-  if (isSessionInitialized) {
-    await authService.setUserPermissions();
-    return true;
-  }
-  return router.navigate([navMenuItems.login.route]);
+  return isSessionInitialized ? true : router.navigate([navMenuItems.login.route]);
 };

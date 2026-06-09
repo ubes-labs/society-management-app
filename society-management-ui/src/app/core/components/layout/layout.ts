@@ -8,6 +8,7 @@ import { NavPanel } from '../nav-panel/nav-panel';
 import { TopNavBar } from '../top-nav-bar/top-nav-bar';
 import { Footer } from '../footer/footer';
 import { MatDividerModule } from '@angular/material/divider';
+import { LoadingSpinner } from '../loading-spinner/loading-spinner';
 
 @Component({
   selector: 'app-layout',
@@ -21,6 +22,7 @@ import { MatDividerModule } from '@angular/material/divider';
     TopNavBar,
     NavPanel,
     Footer,
+    LoadingSpinner,
   ],
   templateUrl: './layout.html',
   styleUrl: './layout.scss',
