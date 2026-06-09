@@ -3,10 +3,10 @@ import { society, societyLocation } from '../../core';
 
 export const initializeSocietyForm = (formBuilder: FormBuilder) =>
   formBuilder.group({
-    societyName: ['', Validators.required],
+    societyName: ['', [Validators.required, Validators.maxLength(500)]],
     societyDescription: ['', Validators.required],
     societyContactEmail: ['', [Validators.required, Validators.email]],
-    societyContactPhone: ['', Validators.required],
+    societyContactPhone: ['', [Validators.required, Validators.maxLength(15)]],
     societyWebsiteUrl: ['', Validators.required],
     societyCompletionDate: [{ value: '', disabled: true }, Validators.required],
     societyBuilder: ['', Validators.required],

@@ -11,32 +11,32 @@
   >
   <form [formGroup]="pageForm" (submit)="saveData()">
     <mat-card-content>
-      <div class="flex flex-wrap gap-4">
-        <mat-form-field appearance="fill">
+      <div class="flex flex-wrap gap-4 md:justify-between">
+        <mat-form-field class="max-sm:w-full" appearance="fill">
           <mat-label> Society Name </mat-label>
           <input
             matInput
             type="text"
             placeholder="Enter society name"
             formControlName="societyName"
+            maxlength="500"
           />
           @if (pageForm.get('societyName')?.hasError('required')) {
             <mat-error>This field is required</mat-error>
           }
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field class="max-sm:w-full" appearance="fill">
           <mat-label> Society Description </mat-label>
-          <input
+          <textarea
             matInput
-            type="text"
             placeholder="Enter society description"
             formControlName="societyDescription"
-          />
+          ></textarea>
           @if (pageForm.get('societyDescription')?.hasError('required')) {
             <mat-error>This field is required</mat-error>
           }
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field class="max-sm:w-full" appearance="fill">
           <mat-label> Society Contact Email </mat-label>
           <input
             matInput
@@ -48,19 +48,20 @@
             <mat-error>This field is required</mat-error>
           }
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field class="max-sm:w-full" appearance="fill">
           <mat-label> Society contact phone </mat-label>
           <input
             matInput
             type="text"
             placeholder="Enter society contact phone"
             formControlName="societyContactPhone"
+            maxlength="15"
           />
           @if (pageForm.get('societyContactPhone')?.hasError('required')) {
             <mat-error>This field is required</mat-error>
           }
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field class="max-sm:w-full" appearance="fill">
           <mat-label> Society website url </mat-label>
           <input
             matInput
@@ -72,7 +73,7 @@
             <mat-error>This field is required</mat-error>
           }
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field class="max-sm:w-full" appearance="fill">
           <mat-label> Society completion date </mat-label>
           <input
             matInput
@@ -86,7 +87,7 @@
             <mat-error>This field is required</mat-error>
           }
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field class="max-sm:w-full" appearance="fill">
           <mat-label> Society builder </mat-label>
           <input
             matInput
@@ -98,7 +99,7 @@
             <mat-error>This field is required</mat-error>
           }
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field class="max-sm:w-full" appearance="fill">
           <mat-label> Society promoter </mat-label>
           <input
             matInput
@@ -110,7 +111,7 @@
             <mat-error>This field is required</mat-error>
           }
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field class="max-sm:w-full" appearance="fill">
           <mat-label> Society location address </mat-label>
           <input
             matInput
@@ -122,7 +123,7 @@
             <mat-error>This field is required</mat-error>
           }
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field class="max-sm:w-full" appearance="fill">
           <mat-label> Society location city </mat-label>
           <input
             matInput
@@ -134,7 +135,7 @@
             <mat-error>This field is required</mat-error>
           }
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field class="max-sm:w-full" appearance="fill">
           <mat-label> Society location state </mat-label>
           <input
             matInput
@@ -146,7 +147,7 @@
             <mat-error>This field is required</mat-error>
           }
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field class="max-sm:w-full" appearance="fill">
           <mat-label> Society location postal code </mat-label>
           <input
             matInput
@@ -158,7 +159,7 @@
             <mat-error>This field is required</mat-error>
           }
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field class="max-sm:w-full" appearance="fill">
           <mat-label> Society location district </mat-label>
           <input
             matInput
@@ -170,7 +171,7 @@
             <mat-error>This field is required</mat-error>
           }
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field class="max-sm:w-full" appearance="fill">
           <mat-label> Society location country </mat-label>
           <input
             matInput
@@ -185,10 +186,18 @@
       </div> </mat-card-content
     ><mat-card-footer
       ><div class="flex gap-4 justify-end p-2">
-        <button matButton type="submit" [disabled]="!pageForm.valid" i18n="@@saveChangesLabel">
+        <button
+          matFab
+          extended
+          type="submit"
+          [disabled]="!pageForm.valid"
+          i18n="@@saveChangesLabel"
+        >
           Save Changes
         </button>
-        <button matButton (click)="cancelSave()" type="button" i18n="@@cancelLabel">Cancel</button>
+        <button matButton="filled" (click)="cancelSave()" type="button" i18n="@@cancelLabel">
+          Cancel
+        </button>
       </div></mat-card-footer
     >
   </form></mat-card

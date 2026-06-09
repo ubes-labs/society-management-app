@@ -9,7 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
-import { navMenuItems, SocietyApiService } from '../../core';
+import { LoadingService, navMenuItems, SocietyApiService } from '../../core';
 import { MatDialog } from '@angular/material/dialog';
 import {
   convertToSocietyCreateRpcFromObject,
@@ -18,6 +18,7 @@ import {
   YesNoDialog,
 } from '../../shared';
 import { firstValueFrom } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-society-manage',
@@ -42,6 +43,8 @@ export class SocietyManage implements OnInit {
   private readonly _formBuilder = inject(FormBuilder);
   private readonly _matDialog = inject(MatDialog);
   private readonly _societyApiService = inject(SocietyApiService);
+  private readonly _loadingService = inject(LoadingService);
+  private readonly _snackbarService = inject(MatSnackBar);
 
   pageMode: 'create' | 'edit' = 'create';
   readonly navMenuItems = navMenuItems;
@@ -78,7 +81,7 @@ export class SocietyManage implements OnInit {
     }
   }
 
-  async cancelSave() {
+  cancelSave() {
     this.pageForm.reset();
   }
 
@@ -88,6 +91,43 @@ export class SocietyManage implements OnInit {
       convertedData.society,
       convertedData.societyLocation,
     );
-    const res = await this._societyApiService.createSociety(rpcRequest);
+    await this._createSociety(rpcRequest);
   }
+
+  private _createSociety = async (rpcRequest: Record<string, any>) =>
+    this._loadingService.track(
+      this._societyApiService
+        .createSociety(rpcRequest)
+        .then((res) => {
+          if (!res.success)
+            this._snackbarService.open(res.error?.message ?? '', $localize`:@@closeLabel:Close`, {
+              horizontalPosition: 'center',
+              verticalPosition: 'top',
+              duration: 5000,
+            });
+          else {
+            this._snackbarService.open(
+              $localize`:@@successfullyCreatedLabel:Successfully created`,
+              $localize`:@@closeLabel:Close`,
+              {
+                horizontalPosition: 'center',
+                verticalPosition: 'top',
+                duration: 5000,
+              },
+            );
+            this.cancelSave();
+          }
+        })
+        .catch(() => {
+          this._snackbarService.open(
+            $localize`:@@someErrorOccuredLabel:Some error occured`,
+            $localize`:@@closeLabel:Close`,
+            {
+              horizontalPosition: 'center',
+              verticalPosition: 'top',
+              duration: 5000,
+            },
+          );
+        }),
+    );
 }
