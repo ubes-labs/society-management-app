@@ -212,5 +212,12 @@
       </segment>
     </unit>
 
+    <unit id="darkModeLabel">
+      <segment>
+        <source> Dark Mode </source>
+        <target>ডার্ক মোড</target>
+      </segment>
+    </unit>
+
   </file>
 </xliff>

@@ -41,6 +41,14 @@
         <source>Contact Us</source>
       </segment>
     </unit>
+    <unit id="darkModeLabel">
+      <notes>
+        <note category="location">src/app/core/components/nav-panel/nav-panel.html:31,32</note>
+      </notes>
+      <segment>
+        <source> Dark Mode </source>
+      </segment>
+    </unit>
     <unit id="openMenuAriaLabel">
       <notes>
         <note category="location">src/app/core/components/top-nav-bar/top-nav-bar.html:5,6</note>

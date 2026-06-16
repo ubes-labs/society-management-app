@@ -12,7 +12,7 @@
             matButton
             [routerLink]="navMenuItems.login.route"
             (click)="menuItemsClicked.emit()"
-            routerLinkActive="active-link"
+            routerLinkActive="!bg-[var(--mat-sys-primary-container)]"
             ><mat-icon>{{ navMenuItems.login.icon }}</mat-icon> {{ navMenuItems.login.label }}
           </a>
         }
@@ -40,7 +40,7 @@
         mat-list-item
         [routerLink]="navMenuItems.dashboard.route"
         (click)="menuItemsClicked.emit()"
-        routerLinkActive="active-link"
+        routerLinkActive="!bg-[var(--mat-sys-primary-container)]"
         ><mat-icon matListItemIcon>{{ navMenuItems.dashboard.icon }}</mat-icon>
         {{ navMenuItems.dashboard.label }}
       </a>
@@ -48,7 +48,7 @@
         mat-list-item
         [routerLink]="navMenuItems.society.route"
         (click)="menuItemsClicked.emit()"
-        routerLinkActive="active-link"
+        routerLinkActive="!bg-[var(--mat-sys-primary-container)]"
         ><mat-icon matListItemIcon>{{ navMenuItems.society.icon }}</mat-icon>
         {{ navMenuItems.society.label }}
       </a>
