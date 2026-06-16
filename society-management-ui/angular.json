@@ -54,7 +54,8 @@
                 }
               ],
               "outputHashing": "all",
-              "localize": true
+              "localize": true,
+              "serviceWorker": "ngsw-config.json"
             },
             "development": {
               "optimization": false,

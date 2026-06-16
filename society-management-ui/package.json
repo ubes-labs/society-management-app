@@ -1,6 +1,6 @@
 {
   "name": "society-management-ui",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -22,6 +22,7 @@
     "@angular/material": "^22.0.1",
     "@angular/platform-browser": "^22.0.1",
     "@angular/router": "^22.0.1",
+    "@angular/service-worker": "^22.0.1",
     "@supabase/supabase-js": "^2.106.2",
     "rxjs": "~7.8.0",
     "tailwindcss": "^4.3.0",

@@ -19,15 +19,23 @@
     </unit>
     <unit id="footerLicenseText">
       <notes>
-        <note category="location">src/app/core/components/footer/footer.html:9,10</note>
+        <note category="location">src/app/core/components/footer/footer.html:9,11</note>
       </notes>
       <segment>
         <source>Licensed under the MIT License.</source>
       </segment>
     </unit>
+    <unit id="appVersionText">
+      <notes>
+        <note category="location">src/app/core/components/footer/footer.html:11,13</note>
+      </notes>
+      <segment>
+        <source>Version: <ph id="0" equiv="INTERPOLATION" disp="{{ appVersion }}"/></source>
+      </segment>
+    </unit>
     <unit id="contactUsEmailTooltip">
       <notes>
-        <note category="location">src/app/core/components/footer/footer.html:15,16</note>
+        <note category="location">src/app/core/components/footer/footer.html:18,19</note>
       </notes>
       <segment>
         <source>Contact Us</source>
@@ -139,7 +147,7 @@
     </unit>
     <unit id="backToSocietyLabel">
       <notes>
-        <note category="location">src/app/features/society-manage/society-manage.html:2,5</note>
+        <note category="location">src/app/features/society-manage/society-manage.html:3,7</note>
       </notes>
       <segment>
         <source>Back to society list</source>
@@ -147,7 +155,7 @@
     </unit>
     <unit id="createNewSocietyTitle">
       <notes>
-        <note category="location">src/app/features/society-manage/society-manage.html:7,8</note>
+        <note category="location">src/app/features/society-manage/society-manage.html:9,10</note>
       </notes>
       <segment>
         <source>Create new society</source>
@@ -155,7 +163,7 @@
     </unit>
     <unit id="saveChangesLabel">
       <notes>
-        <note category="location">src/app/features/society-manage/society-manage.html:187,189</note>
+        <note category="location">src/app/features/society-manage/society-manage.html:196,198</note>
       </notes>
       <segment>
         <source> Save Changes </source>
@@ -163,15 +171,60 @@
     </unit>
     <unit id="cancelLabel">
       <notes>
-        <note category="location">src/app/features/society-manage/society-manage.html:189,190</note>
+        <note category="location">src/app/features/society-manage/society-manage.html:199,200</note>
       </notes>
       <segment>
-        <source>Cancel</source>
+        <source> Cancel </source>
+      </segment>
+    </unit>
+    <unit id="closeLabel">
+      <notes>
+        <note category="location">src/app/features/society-manage/society-manage.ts:103</note>
+        <note category="location">src/app/features/society-manage/society-manage.ts:111</note>
+        <note category="location">src/app/features/society-manage/society-manage.ts:124</note>
+        <note category="location">src/app/features/society/society.ts:36</note>
+        <note category="location">src/app/features/society/society.ts:46</note>
+      </notes>
+      <segment>
+        <source>Close</source>
+      </segment>
+    </unit>
+    <unit id="successfullyCreatedLabel">
+      <notes>
+        <note category="location">src/app/features/society-manage/society-manage.ts:110</note>
+      </notes>
+      <segment>
+        <source>Successfully created</source>
+      </segment>
+    </unit>
+    <unit id="someErrorOccuredLabel">
+      <notes>
+        <note category="location">src/app/features/society-manage/society-manage.ts:123</note>
+        <note category="location">src/app/features/society/society.ts:45</note>
+      </notes>
+      <segment>
+        <source>Some error occured</source>
+      </segment>
+    </unit>
+    <unit id="listOfSocietiesLabel">
+      <notes>
+        <note category="location">src/app/features/society/society.html:9,10</note>
+      </notes>
+      <segment>
+        <source>List of Societies</source>
+      </segment>
+    </unit>
+    <unit id="noDataFoundLabel">
+      <notes>
+        <note category="location">src/app/features/society/society.html:24,28</note>
+      </notes>
+      <segment>
+        <source>No data found</source>
       </segment>
     </unit>
     <unit id="addNewSocietyLabel">
       <notes>
-        <note category="location">src/app/features/society/society.ts:16</note>
+        <note category="location">src/app/features/society/society.ts:23</note>
       </notes>
       <segment>
         <source>Add new society</source>

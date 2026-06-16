@@ -5,28 +5,35 @@
     <unit id="footerDesignDevelopByText">
       <segment>
         <source>Designed and developed by Akashneel Ghosh.</source>
-        <target>अकाशनील घोष द्वारा डिज़ाइन एवं विकसित।</target>
+        <target>आकशनील घोष द्वारा डिज़ाइन और विकसित किया गया।</target>
       </segment>
     </unit>
 
     <unit id="footerCopyrightText">
       <segment>
         <source>2026 Society Management System App. All rights reserved.</source>
-        <target>२०२६ सोसाइटी प्रबंधन प्रणाली अनुप्रयोग। सर्वाधिकार सुरक्षित।</target>
+        <target>2026 सोसाइटी मैनेजमेंट सिस्टम ऐप। सर्वाधिकार सुरक्षित।</target>
       </segment>
     </unit>
 
     <unit id="footerLicenseText">
       <segment>
         <source>Licensed under the MIT License.</source>
-        <target>एमआईटी लाइसेंस के अंतर्गत लाइसेंस प्राप्त।</target>
+        <target>MIT लाइसेंस के अंतर्गत लाइसेंस प्राप्त।</target>
+      </segment>
+    </unit>
+
+    <unit id="appVersionText">
+      <segment>
+        <source>Version: <ph id="0" equiv="INTERPOLATION" disp="{{ appVersion }}"/></source>
+        <target>संस्करण: <ph id="0" equiv="INTERPOLATION" disp="{{ appVersion }}"/></target>
       </segment>
     </unit>
 
     <unit id="contactUsEmailTooltip">
       <segment>
         <source>Contact Us</source>
-        <target>हमसे संपर्क करें</target>
+        <target>संपर्क करें</target>
       </segment>
     </unit>
 
@@ -40,14 +47,14 @@
     <unit id="logoAltText">
       <segment>
         <source>Logo</source>
-        <target>प्रतीक चिन्ह</target>
+        <target>लोगो</target>
       </segment>
     </unit>
 
     <unit id="appTitleLabel">
       <segment>
         <source>Society Management System</source>
-        <target>सोसाइटी प्रबंधन प्रणाली</target>
+        <target>सोसाइटी मैनेजमेंट सिस्टम</target>
       </segment>
     </unit>
 
@@ -68,14 +75,14 @@
     <unit id="logOutLabel">
       <segment>
         <source>Log Out</source>
-        <target>लॉग आउट करें</target>
+        <target>लॉग आउट</target>
       </segment>
     </unit>
 
     <unit id="loginLabel">
       <segment>
         <source>Log In</source>
-        <target>लॉग इन करें</target>
+        <target>लॉग इन</target>
       </segment>
     </unit>
 
@@ -89,19 +96,30 @@
     <unit id="userProfileLabel">
       <segment>
         <source>User Profile</source>
-        <target>उपयोगकर्ता प्रोफ़ाइल</target>
+        <target>यूज़र प्रोफ़ाइल</target>
       </segment>
-    </unit> 
+    </unit>
+
+    <unit id="societyLabel">
+      <segment>
+        <source>Society</source>
+        <target>सोसाइटी</target>
+      </segment>
+    </unit>
+
+    <unit id="societyManageLabel">
+      <segment>
+        <source>Manage Society</source>
+        <target>सोसाइटी प्रबंधन</target>
+      </segment>
+    </unit>
 
     <unit id="dashboardWelcomeHeader">
-      <notes>
-        <note category="location">src/app/features/dashboard/dashboard.html:4,6</note>
-      </notes>
       <segment>
         <source> Welcome <ph id="0" equiv="INTERPOLATION" disp="{{ authService.user()?.user_metadata?.['full_name'] }}"/> </source>
-        <target>स्वागत है <ph id="0" equiv="INTERPOLATION" disp="{{ authService.user()?.user_metadata?.['full_name'] }}"/> </target>
+        <target>स्वागत है <ph id="0" equiv="INTERPOLATION" disp="{{ authService.user()?.user_metadata?.['full_name'] }}"/></target>
       </segment>
-    </unit>   
+    </unit>
 
     <unit id="dashboardCardTitle">
       <segment>
@@ -110,28 +128,87 @@
       </segment>
     </unit>
 
-     <unit id="societyLabel">
-      <notes>
-        <note category="location">src/app/core/const/nav-const/nav.const.ts:28</note>
-      </notes>
+    <unit id="backToSocietyLabel">
       <segment>
-        <source>Society</source>
+        <source>Back to society list</source>
+        <target>सोसाइटी सूची पर वापस जाएँ</target>
       </segment>
     </unit>
-    <unit id="societyManageLabel">
-      <notes>
-        <note category="location">src/app/core/const/nav-const/nav.const.ts:33</note>
-      </notes>
+
+    <unit id="createNewSocietyTitle">
       <segment>
-        <source>Manage Society</source>
+        <source>Create new society</source>
+        <target>नई सोसाइटी बनाएँ</target>
       </segment>
     </unit>
+
+    <unit id="saveChangesLabel">
+      <segment>
+        <source> Save Changes </source>
+        <target>परिवर्तन सहेजें</target>
+      </segment>
+    </unit>
+
+    <unit id="cancelLabel">
+      <segment>
+        <source> Cancel </source>
+        <target>रद्द करें</target>
+      </segment>
+    </unit>
+
+    <unit id="closeLabel">
+      <segment>
+        <source>Close</source>
+        <target>बंद करें</target>
+      </segment>
+    </unit>
+
+    <unit id="successfullyCreatedLabel">
+      <segment>
+        <source>Successfully created</source>
+        <target>सफलतापूर्वक बनाया गया</target>
+      </segment>
+    </unit>
+
+    <unit id="someErrorOccuredLabel">
+      <segment>
+        <source>Some error occured</source>
+        <target>कुछ त्रुटि हुई</target>
+      </segment>
+    </unit>
+
+    <unit id="listOfSocietiesLabel">
+      <segment>
+        <source>List of Societies</source>
+        <target>सोसाइटी की सूची</target>
+      </segment>
+    </unit>
+
+    <unit id="noDataFoundLabel">
+      <segment>
+        <source>No data found</source>
+        <target>कोई डेटा नहीं मिला</target>
+      </segment>
+    </unit>
+
     <unit id="addNewSocietyLabel">
-      <notes>
-        <note category="location">src/app/features/society/society.ts:16</note>
-      </notes>
       <segment>
         <source>Add new society</source>
+        <target>नई सोसाइटी जोड़ें</target>
+      </segment>
+    </unit>
+
+    <unit id="noLabel">
+      <segment>
+        <source>No</source>
+        <target>नहीं</target>
+      </segment>
+    </unit>
+
+    <unit id="yesLabel">
+      <segment>
+        <source> Yes </source>
+        <target>हाँ</target>
       </segment>
     </unit>
 
