@@ -1,0 +1,20 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.7",
+  "base_commit_sha": "0cdb3c9685d102733b7d0fe248661c5c16893a81",
+  "prompts": {
+    "1cca000492a49588": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "02e1cab0-c5aa-42c4-af0d-3d6e83a6026e",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "aghosh <aghosh@neogov.net>",
+      "total_additions": 10,
+      "total_deletions": 8,
+      "accepted_lines": 0,
+      "overriden_lines": 0
+    }
+  }
+}
