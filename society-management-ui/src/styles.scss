@@ -5,39 +5,27 @@
 // custom components at https://material.angular.dev/guide/theming
 @use '@angular/material' as mat;
 @use 'tailwindcss';
-@use './app/styles/mat-toolbar.theme' as mat-toolbar-theme;
+@use './styles/_tailwind.theme.css';
+@use './styles/theme' as app-theme;
 
-html {
-  height: 100%;
-  @include mat.theme(
-    (
-      color: (
-        primary: mat.$azure-palette,
-        tertiary: mat.$blue-palette,
-      ),
-      typography: Roboto,
-      density: 0,
-    )
-  );
-}
+@include mat.core();
 
+html,
 body {
-  // Default the application to a light color theme. This can be changed to
-  // `dark` to enable the dark color theme, or to `light dark` to defer to the
-  // user's system settings.
-  color-scheme: light;
-
-  // Set a default background, font and text colors for the application using
-  // Angular Material's system-level CSS variables. Learn more about these
-  // variables at https://material.angular.dev/guide/system-variables
-  background-color: var(--mat-sys-surface);
-  color: var(--mat-sys-on-surface);
-  font: var(--mat-sys-body-medium);
-
   // Reset the user agent margin.
   margin: 0;
   height: 100%;
 
-  @include mat-toolbar-theme.mat-toolbar-theme();
+  .light {
+    @include mat.all-component-themes(app-theme.$light-theme);
+    @include mat.system-level-colors(app-theme.$light-theme);
+    @include mat.system-level-typography(app-theme.$light-theme);
+  }
+
+  .dark {
+    @include mat.all-component-themes(app-theme.$dark-theme);
+    @include mat.system-level-colors(app-theme.$dark-theme);
+    @include mat.system-level-typography(app-theme.$dark-theme);
+  }
 }
 /* You can add global styles to this file, and also import other style files */

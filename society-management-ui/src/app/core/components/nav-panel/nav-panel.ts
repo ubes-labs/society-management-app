@@ -1,11 +1,12 @@
-import { Component, EventEmitter, inject, Output } from '@angular/core';
+import { Component, effect, EventEmitter, inject, Output } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { Router, RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
-import { AuthService, langConst, navMenuItems } from '../..';
+import { AuthService, langConst, navMenuItems, ThemeService } from '../..';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-nav-panel',
@@ -16,6 +17,7 @@ import { AuthService, langConst, navMenuItems } from '../..';
     MatIconModule,
     MatMenuModule,
     MatDividerModule,
+    MatSlideToggleModule,
   ],
   templateUrl: './nav-panel.html',
   styleUrl: './nav-panel.scss',
@@ -30,6 +32,15 @@ export class NavPanel {
 
   readonly auth = inject(AuthService);
   private readonly _router = inject(Router);
+  private readonly _themeService = inject(ThemeService);
+
+  constructor() {
+    effect(() => {
+      const theme = this._themeService.theme();
+      document.body.classList.remove('light', 'dark');
+      document.body.classList.add(theme);
+    });
+  }
 
   async logOut() {
     await this.auth.logout();
@@ -47,4 +58,6 @@ export class NavPanel {
       }
     }
   }
+
+  switchTheme = (theme: 'light' | 'dark') => this._themeService.setTheme(theme);
 }
