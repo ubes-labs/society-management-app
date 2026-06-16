@@ -1,6 +1,6 @@
 {
-  "name": "society-management-ui",
-  "short_name": "society-management-ui",
+  "name": "Society Management",
+  "short_name": "Society Management",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
