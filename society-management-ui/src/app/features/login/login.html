@@ -1,3 +1,46 @@
-<div class="flex flex-col content-around flex-wrap h-full justify-center">
+<div class="flex flex-col content-around flex-wrap h-full justify-center gap-8">
+  <mat-card class="max-sm:w-full">
+    <mat-card-content>
+      <mat-tab-group dynamicHeight class="gap-4">
+        <mat-tab label="Log In">
+          <form
+            [formGroup]="loginForm"
+            class="flex flex-col gap-4"
+            (submit)="loginWithEmailPassword()"
+          >
+            <mat-form-field class="max-sm:w-full" appearance="fill">
+              <mat-label> Email </mat-label>
+              <input
+                matInput
+                type="text"
+                placeholder="Enter email"
+                formControlName="email"
+                maxlength="500"
+              />
+              @if (loginForm.get('email')?.hasError('required')) {
+                <mat-error>This field is required</mat-error>
+              }
+            </mat-form-field>
+            <mat-form-field class="max-sm:w-full" appearance="fill">
+              <mat-label> Password </mat-label>
+              <input
+                matInput
+                type="password"
+                placeholder="Enter password"
+                formControlName="password"
+                maxlength="500"
+              />
+              @if (loginForm.get('password')?.hasError('required')) {
+                <mat-error>This field is required</mat-error>
+              }
+            </mat-form-field>
+            <button mat-raised-button type="submit" [disabled]="!loginForm.valid">Log in</button>
+          </form>
+        </mat-tab>
+        <mat-tab
+          label="Sign Up"
+          i18-lable="@@signupTextLabel"
+        ></mat-tab> </mat-tab-group></mat-card-content
+  ></mat-card>
   <button mat-raised-button (click)="login()">{{ appConst.loginWithGoogle }}</button>
 </div>
