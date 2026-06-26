@@ -1,12 +1,12 @@
 <div class="flex flex-col content-around flex-wrap h-full justify-center gap-8">
   <mat-card class="max-sm:w-full w-1/2">
     <mat-card-content>
-      <mat-tab-group dynamicHeight class="gap-4">
+      <mat-tab-group dynamicHeight class="gap-4" [(selectedIndex)]="activeTabIndex">
         <mat-tab label="Log In">
           <p class="mb-4">New users please click on sign up tab to register</p>
           <form
             [formGroup]="loginForm"
-            class="flex flex-col gap-4"
+            class="flex flex-col gap-4 mb-4"
             (submit)="loginWithEmailPassword()"
           >
             <mat-form-field class="max-sm:w-full" appearance="fill">
@@ -41,7 +41,7 @@
         <mat-tab label="Sign Up">
           <form
             [formGroup]="signupForm"
-            class="flex flex-col gap-4"
+            class="flex flex-col gap-4 mb-4"
             (submit)="signupWithEmailPassword()"
           >
             <mat-form-field class="max-sm:w-full" appearance="fill">
@@ -102,5 +102,5 @@
       </mat-tab-group></mat-card-content
     ></mat-card
   >
-  <button mat-raised-button (click)="login()">{{ appConst.loginWithGoogle }}</button>
+  <button mat-raised-button (click)="loginWithGoogle()">{{ appConst.loginWithGoogle }}</button>
 </div>

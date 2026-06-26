@@ -41,11 +41,9 @@ export class Login {
   readonly appConst = appConst;
   readonly loginForm = initializeLoginForm(this._formBuilder);
   readonly signupForm = initializeSignupForm(this._formBuilder);
-  private readonly _navMenuItems = navMenuItems;
+  activeTabIndex = 0;
 
-  async login() {
-    await this._auth.loginWithGoogle();
-  }
+  loginWithGoogle = async () => this._auth.loginWithGoogle();
 
   async loginWithEmailPassword() {
     if (this.loginForm.valid) {
@@ -61,7 +59,6 @@ export class Login {
                 duration: 5000,
               });
             } else {
-              this.cleanUpForm(this.loginForm);
               await this._router.navigate([navMenuItems.dashboard.route]);
             }
           })
@@ -99,7 +96,7 @@ export class Login {
               });
             } else {
               this._snackbarService.open(
-                'You have successfully registered',
+                'You have successfully registered. Please login',
                 $localize`:@@closeLabel:Close`,
                 {
                   horizontalPosition: 'center',
@@ -108,6 +105,7 @@ export class Login {
                 },
               );
               this.cleanUpForm(this.signupForm);
+              this.activeTabIndex = 0;
             }
           })
           .catch(() =>
