@@ -31,6 +31,23 @@ export class AuthService {
     return !!sessionResponse?.data?.session;
   };
 
+  loginWithEmailPassword = async (email: string, password: string) =>
+    this._supabase.auth.signInWithPassword({
+      email: email,
+      password: password,
+    });
+
+  signupWithEmailPassword = async (email: string, password: string, fullName: string) =>
+    this._supabase.auth.signUp({
+      email: email,
+      password: password,
+      options: {
+        data: {
+          full_name: fullName,
+        },
+      },
+    });
+
   private _initializeSupabaseClient = () =>
     createClient(environment.supabaseUrl, environment.supabaseAnonKey, {
       auth: {
