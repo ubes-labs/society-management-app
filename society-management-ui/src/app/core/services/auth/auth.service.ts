@@ -52,6 +52,9 @@ export class AuthService {
     createClient(environment.supabaseUrl, environment.supabaseAnonKey, {
       auth: {
         flowType: 'pkce',
+        storage: sessionStorage,
+        persistSession: true,
+        autoRefreshToken: true,
       },
     });
 
